@@ -11,7 +11,7 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private ArrayList<Integer> list_iAS;
-
+    public int cost;
 
     /**
       @return the index of the first occurrence of
@@ -19,23 +19,22 @@ public class OrderedList_inArraySlots
               \findMe is absent from this list.
      */
      public int indexOf( Integer findMe) {
-
-       return indexOf(findMe,list_iAS.size() - 1);
-
+       cost = 0;
+       return brec(list_iAS,findMe,0,list_iAS.size()-1);
+      //return bwhile(list_iAS,findMe);
      }
 
-    public int indexOf( Integer findMe, int high) {
-
-      int index = b(list_iAS,findMe,0,high);
-
-      if (b(list_iAS,findMe,0,index-1) == -1)
-      return index;
-
-      else
-      return indexOf(findMe,index-1);
-
-    }
-
+    // public int indexOf( Integer findMe, int high) {
+    //
+    //   int index = b(list_iAS,findMe,0,high);
+    //
+    //   if (b(list_iAS,findMe,0,index-1) == -1)
+    //   return index;
+    //
+    //   else
+    //   return indexOf(findMe,index-1);
+    //
+    // }
 
     // ------ code from previous assignments below here ----
 
@@ -95,11 +94,9 @@ public class OrderedList_inArraySlots
         return list_iAS.remove( index);
     }
 
-    public int b (ArrayList<Integer> list, int find) {
-      return b(list,find,0,list.size()-1);
-    }
+    public int brec (ArrayList<Integer> list, int find, int low, int high) {
 
-    public int b (ArrayList<Integer> list, int find, int low, int high) {
+      cost++;
 
       int mid = (low+high)/2;
 
@@ -110,18 +107,22 @@ public class OrderedList_inArraySlots
       return mid;
 
       else if (list.get(mid) > find)
-      return b(list,find,low,mid-1);
+      return brec(list,find,low,mid-1);
 
       else
-      return b(list,find,mid+1,high);
+      return brec(list,find,mid+1,high);
 
     }
 
     public int bwhile (ArrayList<Integer> list, int find) {
+
       int low = 0;
       int high = list.size() - 1;
 
       while (low <= high) {
+
+        cost++;
+
         int pageToCheck = (high + low)/2;
         if (list.get(pageToCheck) == find)
         return pageToCheck;

@@ -30,6 +30,7 @@ public class UserOfBinarySearch {
                 "Value " + findMe
               + " was found at index " + foundAt
               + ". That's correct, eh? " + (foundAt == i)
+              + " " + orderedList.cost
               );
         }
         System.out.println();
@@ -45,18 +46,22 @@ public class UserOfBinarySearch {
 
         OrderedList_inArraySlots list = new OrderedList_inArraySlots();
 
-        for (int i = 0; i < 4; i++)
-        list.add(1);
-
-        for (int i = 0; i < 2; i++)
-        list.add(2);
-
-        for (int i = 0; i < 7; i++)
-        list.add(4);
-
-        list.add(5);
-
-        System.out.println(list.indexOf(5));
+        // for (int i = 0; i < 4; i++)
+        // list.add(1);
+        //
+        // for (int i = 0; i < 2; i++)
+        // list.add(2);
+        //
+        // for (int i = 0; i < 7; i++)
+        // list.add(4);
+        //
+        // list.add(5);
+        //
+        // System.out.println(list.indexOf(1));
+        // System.out.println(list.indexOf(2));
+        // System.out.println(list.indexOf(3));
+        // System.out.println(list.indexOf(4));
+        // System.out.println(list.indexOf(5));
     }
 
 
